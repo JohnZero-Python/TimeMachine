@@ -1,0 +1,489 @@
+文件批量处理
+http://www.oicqzone.com/pc/2019032124495.html
+https://www.cnblogs.com/adong7639/p/8527161.html
+https://segmentfault.com/a/1190000019831093
+https://www.jb51.net/article/168933.htm
+https://blog.csdn.net/qq_41858657/article/details/101711525?utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~all~sobaiduend~default-4-101711525.nonecase&utm_term=python%20%E5%AE%9E%E7%8E%B0%E6%89%B9%E9%87%8F%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C&spm=1000.2123.3001.4430
+https://www.runoob.com/python/os-file-methods.html
+
+
+
+import os
+
+def del_file(path):
+    for i in os.listdir(path):
+        print(1,i)
+        path_file = os.path.join(path,i)
+        print(2,path_file)
+        if os.path.isfile(path_file):
+            fileName,type=os.path.splitext(path_file)
+            print(3,fileName,type)
+            if type=='.txt':
+                os.remove(path_file)
+        else:
+            del_file(path_file)
+
+del_file(r'C:\Users\Administrator\Desktop\新建文件夹')
+
+
+1 新建 Microsoft Word 文档.docx
+2 C:\Users\Administrator\Desktop\新建文件夹\新建 Microsoft Word 文档.docx
+3 C:\Users\Administrator\Desktop\新建文件夹\新建 Microsoft Word 文档 .docx
+1 新建文件夹
+2 C:\Users\Administrator\Desktop\新建文件夹\新建文件夹
+1 新建 Microsoft Word 文档.docx
+2 C:\Users\Administrator\Desktop\新建文件夹\新建文件夹\新建 Microsoft Word 文档.docx
+3 C:\Users\Administrator\Desktop\新建文件夹\新建文件夹\新建 Microsoft Word 文档 .docx
+1 新建文本文档 - 副本.txt
+2 C:\Users\Administrator\Desktop\新建文件夹\新建文件夹\新建文本文档 - 副本.txt
+3 C:\Users\Administrator\Desktop\新建文件夹\新建文件夹\新建文本文档 - 副本 .txt
+1 新建文本文档.txt
+2 C:\Users\Administrator\Desktop\新建文件夹\新建文件夹\新建文本文档.txt
+3 C:\Users\Administrator\Desktop\新建文件夹\新建文件夹\新建文本文档 .txt
+1 新建文本文档 - 副本.txt
+2 C:\Users\Administrator\Desktop\新建文件夹\新建文本文档 - 副本.txt
+3 C:\Users\Administrator\Desktop\新建文件夹\新建文本文档 - 副本 .txt
+1 新建文本文档.txt
+2 C:\Users\Administrator\Desktop\新建文件夹\新建文本文档.txt
+3 C:\Users\Administrator\Desktop\新建文件夹\新建文本文档 .txt
+
+
+
+path=r'C:\Users\Administrator\Desktop'
+for folderName, subfolders, filenames in os.walk(path):
+    print(folderName, subfolders, filenames)
+
+C:\Users\Administrator\Desktop ['文件', '潘江湖', '软件'] ['~$chine Learning Essay.docx', '~$vector.docx', '~$工科数学分析.docx', '~$应用锁.docx', '~$新建 PPTX 演示文稿.pptx', '~$机科学与工程学院计算机科学与技术专业2019级姓名：潘江湖“大学生心理健康教育”必修课程考核论文 .docx', '~$算法期末作业-论文模板(计算机学报).doc', '~WRL0003.tmp', '~WRL0004.tmp', '~WRL1899.tmp', '潘江湖.txt']
+C:\Users\Administrator\Desktop\文件 [] ['21天习惯养成计划.xls', 'Android.docx', 'C++笔记.docx', 'labuladong笔记.docx', 'Music Player.docx', '丹田.docx', '利用QT生成Word文档.pdf', '应用锁.docx', '潘江湖综测加分证明.zip', '逐梦清华.docx']
+C:\Users\Administrator\Desktop\潘江湖 [] []
+C:\Users\Administrator\Desktop\软件 ['其他'] ['Bandizip.lnk', 'Clash for Windows.lnk', 'ColorSelector.exe', 'desktop.ini', 'Dr.COM宽带认证客户端.lnk', 'jetbrains-agent-latest.zip', 'KMPlayer.lnk', 'matlab.exe - 快捷方式.lnk', 'myeclipse.exe - 快捷方式.lnk', 'NisEdit.lnk', 'Polyspace R2019b.lnk', 'PyCharm 2020.2.1 x64.lnk', 'Snipaste.exe - 快捷方式.lnk', 'VISIO.EXE - 快捷方式.lnk', 'wps.exe - 快捷方式.lnk', 'Zoom.lnk', '冰点下载器v3.2.12(0314).exe', '分区助手 8.3.lnk', '华南理工大学-Ver5.2.1(20190910)Windows(通用版).exe', '唧唧Down.lnk', '央视影音.lnk', '学无止下载器.lnk', '微信.lnk', '格式工厂.lnk', '格式播放器.lnk', '爱奇艺万能联播.lnk', '百度网盘.lnk', '知网研学（原E-Study）.lnk', '福昕高级PDF编辑器.lnk', '维棠FLV视频下载软件.lnk', '网易云音乐.lnk', '腾讯QQ.lnk', '腾讯会议.lnk', '腾讯视频.lnk', '腾讯课堂.lnk', '迅雷.lnk', '酷我音乐.lnk', '雷电多开器.lnk', '雷电模拟器.lnk']
+C:\Users\Administrator\Desktop\软件\其他 ['C4D'] ['360驱动大师.lnk', 'aiStarter.lnk', 'Alice 3.exe - 快捷方式.lnk', 'Bandicam.lnk', 'desktop.ini', 'DVDFab Virtual Drive.lnk', 'Flash Repair.lnk', 'Google Chrome.lnk', 'iTools 4.lnk', 'Microsoft Edge.lnk', 'MP3剪切合并大师.lnk', 'ROM制作工具.lnk', 'Win10激活工具(需要联网).exe', '云净装机大师.lnk', '佛跳墙.lnk', '奇兔刷机.lnk', '应用宝.lnk', '录音软件.lnk', '微信.lnk', '格式播放器.lnk', '水滴IP.lnk', '游戏中心.lnk', '爱奇艺.lnk', '稻壳阅读器.lnk', '线刷大师.lnk', '网易有道词典.lnk', '腾讯QQ.lnk', '腾讯视频.lnk', '视频剪切合并器.lnk', '迅捷视频转换器.lnk']
+C:\Users\Administrator\Desktop\软件\其他\C4D [] ['CINEMA 4D.lnk', 'Commandline.lnk', 'Team Render Client.lnk', 'Team Render Server.lnk']
+
+
+path=r'C:\Users\Administrator\Desktop'
+for folderName, subfolders, filenames in os.walk(path, topdown=False):
+    print(folderName, subfolders, filenames)
+
+C:\Users\Administrator\Desktop\文件 [] ['21天习惯养成计划.xls', 'Android.docx', 'C++笔记.docx', 'labuladong笔记.docx', 'Music Player.docx', '丹田.docx', '利用QT生成Word文档.pdf', '应用锁.docx', '潘江湖综测加分证明.zip', '逐梦清华.docx']
+C:\Users\Administrator\Desktop\潘江湖 [] []
+C:\Users\Administrator\Desktop\软件\其他\C4D [] ['CINEMA 4D.lnk', 'Commandline.lnk', 'Team Render Client.lnk', 'Team Render Server.lnk']
+C:\Users\Administrator\Desktop\软件\其他 ['C4D'] ['360驱动大师.lnk', 'aiStarter.lnk', 'Alice 3.exe - 快捷方式.lnk', 'Bandicam.lnk', 'desktop.ini', 'DVDFab Virtual Drive.lnk', 'Flash Repair.lnk', 'Google Chrome.lnk', 'iTools 4.lnk', 'Microsoft Edge.lnk', 'MP3剪切合并大师.lnk', 'ROM制作工具.lnk', 'Win10激活工具(需要联网).exe', '云净装机大师.lnk', '佛跳墙.lnk', '奇兔刷机.lnk', '应用宝.lnk', '录音软件.lnk', '微信.lnk', '格式播放器.lnk', '水滴IP.lnk', '游戏中心.lnk', '爱奇艺.lnk', '稻壳阅读器.lnk', '线刷大师.lnk', '网易有道词典.lnk', '腾讯QQ.lnk', '腾讯视频.lnk', '视频剪切合并器.lnk', '迅捷视频转换器.lnk']
+C:\Users\Administrator\Desktop\软件 ['其他'] ['Bandizip.lnk', 'Clash for Windows.lnk', 'ColorSelector.exe', 'desktop.ini', 'Dr.COM宽带认证客户端.lnk', 'jetbrains-agent-latest.zip', 'KMPlayer.lnk', 'matlab.exe - 快捷方式.lnk', 'myeclipse.exe - 快捷方式.lnk', 'NisEdit.lnk', 'Polyspace R2019b.lnk', 'PyCharm 2020.2.1 x64.lnk', 'Snipaste.exe - 快捷方式.lnk', 'VISIO.EXE - 快捷方式.lnk', 'wps.exe - 快捷方式.lnk', 'Zoom.lnk', '冰点下载器v3.2.12(0314).exe', '分区助手 8.3.lnk', '华南理工大学-Ver5.2.1(20190910)Windows(通用版).exe', '唧唧Down.lnk', '央视影音.lnk', '学无止下载器.lnk', '微信.lnk', '格式工厂.lnk', '格式播放器.lnk', '爱奇艺万能联播.lnk', '百度网盘.lnk', '知网研学（原E-Study）.lnk', '福昕高级PDF编辑器.lnk', '维棠FLV视频下载软件.lnk', '网易云音乐.lnk', '腾讯QQ.lnk', '腾讯会议.lnk', '腾讯视频.lnk', '腾讯课堂.lnk', '迅雷.lnk', '酷我音乐.lnk', '雷电多开器.lnk', '雷电模拟器.lnk']
+C:\Users\Administrator\Desktop ['文件', '潘江湖', '软件'] ['~$chine Learning Essay.docx', '~$vector.docx', '~$工科数学分析.docx', '~$应用锁.docx', '~$新建 PPTX 演示文稿.pptx', '~$机科学与工程学院计算机科学与技术专业2019级姓名：潘江湖“大学生心理健康教育”必修课程考核论文 .docx', '~$算法期末作业-论文模板(计算机学报).doc', '~WRL0003.tmp', '~WRL0004.tmp', '~WRL1899.tmp', '潘江湖.txt']
+
+import os
+
+path=r'C:\Users\Administrator\Desktop\潘江湖'
+for folderName, subfolders, filenames in os.walk(path):
+    print(folderName, subfolders, filenames)
+
+C:\Users\Administrator\Desktop\潘江湖 ['新建文件夹', '新建文件夹 (2)'] ['新建文本文档.txt']
+C:\Users\Administrator\Desktop\潘江湖\新建文件夹 ['新建文件夹', '新建文件夹 (2)'] ['新建文本文档.txt']
+C:\Users\Administrator\Desktop\潘江湖\新建文件夹\新建文件夹 ['新建文件夹', '新建文件夹 (2)'] ['新建文本文档.txt']
+C:\Users\Administrator\Desktop\潘江湖\新建文件夹\新建文件夹\新建文件夹 [] ['新建文本文档.txt']
+C:\Users\Administrator\Desktop\潘江湖\新建文件夹\新建文件夹\新建文件夹 (2) [] ['新建文本文档.txt']
+C:\Users\Administrator\Desktop\潘江湖\新建文件夹\新建文件夹 (2) ['新建文件夹', '新建文件夹 (2)'] ['新建文本文档.txt']
+C:\Users\Administrator\Desktop\潘江湖\新建文件夹\新建文件夹 (2)\新建文件夹 [] ['新建文本文档.txt']
+C:\Users\Administrator\Desktop\潘江湖\新建文件夹\新建文件夹 (2)\新建文件夹 (2) [] ['新建文本文档.txt']
+C:\Users\Administrator\Desktop\潘江湖\新建文件夹 (2) ['新建文件夹', '新建文件夹 (2)'] ['新建文本文档.txt']
+C:\Users\Administrator\Desktop\潘江湖\新建文件夹 (2)\新建文件夹 ['新建文件夹', '新建文件夹 (2)'] ['新建文本文档.txt']
+C:\Users\Administrator\Desktop\潘江湖\新建文件夹 (2)\新建文件夹\新建文件夹 [] ['新建文本文档.txt']
+C:\Users\Administrator\Desktop\潘江湖\新建文件夹 (2)\新建文件夹\新建文件夹 (2) [] ['新建文本文档.txt']
+C:\Users\Administrator\Desktop\潘江湖\新建文件夹 (2)\新建文件夹 (2) ['新建文件夹', '新建文件夹 (2)'] ['新建文本文档.txt']
+C:\Users\Administrator\Desktop\潘江湖\新建文件夹 (2)\新建文件夹 (2)\新建文件夹 [] ['新建文本文档.txt']
+C:\Users\Administrator\Desktop\潘江湖\新建文件夹 (2)\新建文件夹 (2)\新建文件夹 (2) [] ['新建文本文档.txt']
+
+
+
+秒
+1603696086.5340426
+1603696089.921812
+
+
+
+
+import os
+import shutil
+import time
+
+count=1
+path=r'C:\Users\Administrator\Desktop\2008'
+outfolder=r'C:\Users\Administrator\Desktop\图片'
+suffixes=['相册','截屏','QQ','微信','网站','快手','西瓜','知乎']
+for folder, subfolders, files in os.walk(path):
+    for file in files:
+        suffix = '其它'
+        for i in suffixes:
+            if i in folder:
+                suffix = i
+        src = os.path.join(folder, file)
+        ctime = os.path.getctime(src)  # 时间戳 s
+        strtime = time.strftime('%Y%m%d%H%M%S', time.localtime(ctime))
+        filename,type=os.path.splitext(file)
+        dst=os.path.join(outfolder,f'{strtime}_{suffix}{type}')
+        print(count,src,dst)
+        count+=1
+        shutil.move(src,dst)
+
+
+
+1 C:\Users\Administrator\Desktop\2008\01\微信200801\mmexport1596250381604.jpg C:\Users\Administrator\Desktop\图片\20201027000317_微信.jpg
+2 C:\Users\Administrator\Desktop\2008\01\微信200801\mmexport1596256637175.jpg C:\Users\Administrator\Desktop\图片\20201027000317_微信.jpg
+3 C:\Users\Administrator\Desktop\2008\01\微信200801\mmexport1596256642926.jpg C:\Users\Administrator\Desktop\图片\20201027000317_微信.jpg
+4 C:\Users\Administrator\Desktop\2008\01\相册200801\IMG_20200801_103743.jpg C:\Users\Administrator\Desktop\图片\20201027000317_相册.jpg
+5 C:\Users\Administrator\Desktop\2008\01\相册200801\IMG_20200801_104905.jpg C:\Users\Administrator\Desktop\图片\20201027000317_相册.jpg
+6 C:\Users\Administrator\Desktop\2008\02\截屏200802\Screenshot_20200802_220942.jpg C:\Users\Administrator\Desktop\图片\20201027000317_截屏.jpg
+7 C:\Users\Administrator\Desktop\2008\03\相册200803\IMG_20200803_083126.jpg C:\Users\Administrator\Desktop\图片\20201027000317_相册.jpg
+8 C:\Users\Administrator\Desktop\2008\04\QQ200804\-13bb221aa5a74d10.jpg C:\Users\Administrator\Desktop\图片\20201027000317_QQ.jpg
+9 C:\Users\Administrator\Desktop\2008\04\相册200804\IMG_20200804_183936.jpg C:\Users\Administrator\Desktop\图片\20201027000317_相册.jpg
+10 C:\Users\Administrator\Desktop\2008\06\QQ200806\1596667801991.jpeg C:\Users\Administrator\Desktop\图片\20201027000317_QQ.jpeg
+11 C:\Users\Administrator\Desktop\2008\06\QQ200806\1596667809571.jpeg C:\Users\Administrator\Desktop\图片\20201027000317_QQ.jpeg
+12 C:\Users\Administrator\Desktop\2008\06\QQ空间200806\IMG_20200806_175728.jpg C:\Users\Administrator\Desktop\图片\20201027000317_QQ.jpg
+13 C:\Users\Administrator\Desktop\2008\06\截屏200806\Screenshot_20200806_182125.jpg C:\Users\Administrator\Desktop\图片\20201027000317_截屏.jpg
+14 C:\Users\Administrator\Desktop\2008\06\截屏200806\Screenshot_20200806_182600.jpg C:\Users\Administrator\Desktop\图片\20201027000317_截屏.jpg
+15 C:\Users\Administrator\Desktop\2008\07\截屏200807\Screenshot_20200807_063103.jpg C:\Users\Administrator\Desktop\图片\20201027000317_截屏.jpg
+16 C:\Users\Administrator\Desktop\2008\07\截屏200807\Screenshot_20200807_064638.jpg C:\Users\Administrator\Desktop\图片\20201027000317_截屏.jpg
+17 C:\Users\Administrator\Desktop\2008\08\截屏200808\Screenshot_20200808_114739.jpg C:\Users\Administrator\Desktop\图片\20201027000317_截屏.jpg
+18 C:\Users\Administrator\Desktop\2008\09\相册200809\IMG_20200809_120553.jpg C:\Users\Administrator\Desktop\图片\20201027000317_相册.jpg
+19 C:\Users\Administrator\Desktop\2008\12\截屏200812\Screenshot_20200812_120642.jpg C:\Users\Administrator\Desktop\图片\20201027000317_截屏.jpg
+20 C:\Users\Administrator\Desktop\2008\12\截屏200812\Screenshot_20200812_212219.jpg C:\Users\Administrator\Desktop\图片\20201027000317_截屏.jpg
+21 C:\Users\Administrator\Desktop\2008\12\截屏200812\Screenshot_20200812_215225.jpg C:\Users\Administrator\Desktop\图片\20201027000317_截屏.jpg
+22 C:\Users\Administrator\Desktop\2008\12\截屏200812\Screenshot_2020_0812_183406.png C:\Users\Administrator\Desktop\图片\20201027000317_截屏.png
+23 C:\Users\Administrator\Desktop\2008\14\截屏200814\Screenshot_20200814_083705.jpg C:\Users\Administrator\Desktop\图片\20201027000317_截屏.jpg
+24 C:\Users\Administrator\Desktop\2008\14\截屏200814\Screenshot_20200814_083758.jpg C:\Users\Administrator\Desktop\图片\20201027000317_截屏.jpg
+25 C:\Users\Administrator\Desktop\2008\14\相册200814\IMG_20200814_075430.jpg C:\Users\Administrator\Desktop\图片\20201027000317_相册.jpg
+26 C:\Users\Administrator\Desktop\2008\15\截屏200815\Screenshot_20200815_075334.jpg C:\Users\Administrator\Desktop\图片\20201027000317_截屏.jpg
+27 C:\Users\Administrator\Desktop\2008\15\截屏200815\Screenshot_20200815_081041.jpg C:\Users\Administrator\Desktop\图片\20201027000317_截屏.jpg
+28 C:\Users\Administrator\Desktop\2008\15\截屏200815\Screenshot_20200815_200139.jpg C:\Users\Administrator\Desktop\图片\20201027000317_截屏.jpg
+29 C:\Users\Administrator\Desktop\2008\15\相册200815\IMG_20200815_073715.jpg C:\Users\Administrator\Desktop\图片\20201027000317_相册.jpg
+30 C:\Users\Administrator\Desktop\2008\15\相册200815\IMG_20200815_222223.jpg C:\Users\Administrator\Desktop\图片\20201027000317_相册.jpg
+31 C:\Users\Administrator\Desktop\2008\16\截屏200816\Screenshot_20200816_205744.jpg C:\Users\Administrator\Desktop\图片\20201027000317_截屏.jpg
+32 C:\Users\Administrator\Desktop\2008\16\截屏200816\Screenshot_2020_0816_205224.jpg C:\Users\Administrator\Desktop\图片\20201027000317_截屏.jpg
+33 C:\Users\Administrator\Desktop\2008\16\相册200816\IMG_20200816_183247.jpg C:\Users\Administrator\Desktop\图片\20201027000317_相册.jpg
+34 C:\Users\Administrator\Desktop\2008\16\相册200816\IMG_20200816_184047.jpg C:\Users\Administrator\Desktop\图片\20201027000317_相册.jpg
+35 C:\Users\Administrator\Desktop\2008\16\相册200816\IMG_20200816_184143.jpg C:\Users\Administrator\Desktop\图片\20201027000317_相册.jpg
+36 C:\Users\Administrator\Desktop\2008\16\网站200816\43f48eda666e1258e30cbe7da82d3aa8436b42956f8a5100e6b0d2ec535c13da.0.WEBP C:\Users\Administrator\Desktop\图片\20201027000317_网站.WEBP
+37 C:\Users\Administrator\Desktop\2008\16\网站200816\73d9898c7492e3a6a587d8c2a9ade2cf41b26dd951948e4fc5983c63d249b096.0.WEBP C:\Users\Administrator\Desktop\图片\20201027000317_网站.WEBP
+38 C:\Users\Administrator\Desktop\2008\17\QQ200817\-55a33ae79ab62e03.png C:\Users\Administrator\Desktop\图片\20201027000317_QQ.png
+39 C:\Users\Administrator\Desktop\2008\17\截屏200817\Screenshot_20200817_155053.jpg C:\Users\Administrator\Desktop\图片\20201027000317_截屏.jpg
+40 C:\Users\Administrator\Desktop\2008\17\截屏200817\Screenshot_20200817_181900.jpg C:\Users\Administrator\Desktop\图片\20201027000317_截屏.jpg
+41 C:\Users\Administrator\Desktop\2008\17\截屏200817\Screenshot_20200817_182614.jpg C:\Users\Administrator\Desktop\图片\20201027000317_截屏.jpg
+42 C:\Users\Administrator\Desktop\2008\17\相册200817\IMG_20200817_095336.jpg C:\Users\Administrator\Desktop\图片\20201027000317_相册.jpg
+43 C:\Users\Administrator\Desktop\2008\17\相册200817\IMG_20200817_095539.jpg C:\Users\Administrator\Desktop\图片\20201027000317_相册.jpg
+44 C:\Users\Administrator\Desktop\2008\18\微信200818\2008182149.jpg C:\Users\Administrator\Desktop\图片\20201027000317_微信.jpg
+45 C:\Users\Administrator\Desktop\2008\21\截屏200821\Screenshot_20200821_172508.jpg C:\Users\Administrator\Desktop\图片\20201027000317_截屏.jpg
+46 C:\Users\Administrator\Desktop\2008\22\微信200822\mmexport1598110524742.jpg C:\Users\Administrator\Desktop\图片\20201027000317_微信.jpg
+47 C:\Users\Administrator\Desktop\2008\23\截屏200823\Screenshot_20200823_065152.jpg C:\Users\Administrator\Desktop\图片\20201027000317_截屏.jpg
+48 C:\Users\Administrator\Desktop\2008\23\截屏200823\Screenshot_20200823_141618.jpg C:\Users\Administrator\Desktop\图片\20201027000317_截屏.jpg
+49 C:\Users\Administrator\Desktop\2008\23\截屏200823\Screenshot_20200823_141635.jpg C:\Users\Administrator\Desktop\图片\20201027000317_截屏.jpg
+50 C:\Users\Administrator\Desktop\2008\23\截屏200823\Screenshot_20200823_142216.jpg C:\Users\Administrator\Desktop\图片\20201027000317_截屏.jpg
+51 C:\Users\Administrator\Desktop\2008\24\截屏200824\Screenshot_20200824_060202.jpg C:\Users\Administrator\Desktop\图片\20201027000317_截屏.jpg
+52 C:\Users\Administrator\Desktop\2008\24\截屏200824\Screenshot_20200824_060254.jpg C:\Users\Administrator\Desktop\图片\20201027000317_截屏.jpg
+53 C:\Users\Administrator\Desktop\2008\24\截屏200824\Screenshot_20200824_221332.jpg C:\Users\Administrator\Desktop\图片\20201027000317_截屏.jpg
+54 C:\Users\Administrator\Desktop\2008\25\QQ200825\-775f91c6332590c6.jpg C:\Users\Administrator\Desktop\图片\20201027000318_QQ.jpg
+55 C:\Users\Administrator\Desktop\2008\25\微信200825\mmexport1598309155430.jpg C:\Users\Administrator\Desktop\图片\20201027000318_微信.jpg
+56 C:\Users\Administrator\Desktop\2008\25\截屏200825\Screenshot_20200825_135345.jpg C:\Users\Administrator\Desktop\图片\20201027000318_截屏.jpg
+57 C:\Users\Administrator\Desktop\2008\25\相册200825\IMG_20200825_124719.jpg C:\Users\Administrator\Desktop\图片\20201027000318_相册.jpg
+58 C:\Users\Administrator\Desktop\2008\26\截屏200826\Screenshot_20200826_151447.jpg C:\Users\Administrator\Desktop\图片\20201027000318_截屏.jpg
+59 C:\Users\Administrator\Desktop\2008\26\相册200826\IMG_20200826_100705.jpg C:\Users\Administrator\Desktop\图片\20201027000318_相册.jpg
+
+
+os.path.getmtime才是真正的创建时间戳，而非getctime
+import os
+import shutil
+import time
+
+path=r'C:\Users\Administrator\Desktop\2008'
+outfolder=r'C:\Users\Administrator\Desktop\图片'
+suffixes=['相册','截屏','QQ','微信','网站','快手','西瓜','知乎']
+for folder, subfolders, files in os.walk(path):
+    for file in files:
+        suffix = '其它'
+        for i in suffixes:
+            if i in folder:
+                suffix = i
+        src = os.path.join(folder, file)
+        strtime = time.strftime('%Y%m%d%H%M%S', time.localtime(os.path.getmtime(src)))
+        filename,type=os.path.splitext(file)
+        dst=os.path.join(outfolder,f'{strtime}_{suffix}{type}')
+        shutil.move(src,dst)
+
+
+
+import os
+import shutil
+import time
+
+path=r'H:\文件\图片\新建文件夹'
+outfolder=r'H:\文件\图片\时间1'
+suffixes=['相册','截屏','QQ','微信','网站','快手','西瓜','知乎']
+for folder, subfolders, files in os.walk(path):
+    for file in files:
+        suffix = '其它'
+        for i in suffixes:
+            if i in folder:
+                suffix = i
+        src = os.path.join(folder, file)
+        strtime = time.strftime('%Y%m%d%H%M%S', time.localtime(os.path.getmtime(src)))
+        filename,type=os.path.splitext(file)
+        dst=os.path.join(outfolder,f'{strtime}_{suffix}{type}')
+        shutil.move(src,dst)
+
+
+import os
+import shutil
+
+path=r'C:\Users\Administrator\Desktop\新建文件夹'
+outfolder=r'C:\Users\Administrator\Desktop\图片'
+for folder, subfolders, files in os.walk(path):
+    for file in files:
+        src = os.path.join(folder, file)
+        dst=os.path.join(outfolder,file)
+        shutil.move(src,dst)
+
+
+
+import os
+import shutil
+import time
+
+path=r'C:\Users\Administrator\Desktop\新建文件夹'
+outfolder=r'C:\Users\Administrator\Desktop\图片'
+suffixes=['相册','截屏','QQ','微信','网站','快手','西瓜','知乎']
+for folder, subfolders, files in os.walk(path):
+    for file in files:
+        suffix = '其它'
+        for i in suffixes:
+            if i in folder:
+                suffix = i
+        src = os.path.join(folder, file)
+        mtime=os.path.getmtime(src)
+        tag=True
+        while tag:
+            strtime = time.strftime('%Y%m%d%H%M%S', time.localtime(mtime))
+            filename,type=os.path.splitext(file)
+            dst=os.path.join(outfolder,f'{strtime}_{suffix}{type}')
+            tag=os.path.exists(dst)
+            mtime+=1
+        shutil.move(src,dst)
+
+
+https://blog.csdn.net/weixin_43745169/article/details/100988915?utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~all~first_rank_v2~rank_v25-1-100988915.nonecase&utm_term=python%20%E8%8E%B7%E5%8F%96%E7%85%A7%E7%89%87%E6%8B%8D%E6%91%84%E6%97%B6%E9%97%B4&spm=1000.2123.3001.4430
+
+https://blog.csdn.net/weixin_42218582/article/details/90732231
+
+https://www.cnpython.com/pypi/exifread
+
+
+照片
+import exifread
+
+file=open(r'C:\Users\Administrator\Desktop\时光鸡\20200324150438_相册.jpg','rb')
+tags=exifread.process_file(file)
+for tag in tags.keys():
+    if tag not in ('JPEGThumbnail', 'TIFFThumbnail', 'Filename', 'EXIF MakerNote'):
+        print("Key: %s, value %s" % (tag, tags[tag]))
+
+Key: Image Make, value vivo
+Key: Image ImageLength, value 4608
+Key: Image Orientation, value 0
+Key: Image DateTime, value 2020:03:24 15:04:38
+Key: GPS GPSLatitude, value [28, 25, 565979/10000]
+Key: GPS GPSAltitude, value 0
+Key: GPS GPSLatitudeRef, value N
+Key: GPS GPSAltitudeRef, value 0
+Key: GPS GPSProcessingMethod, value [65, 83, 67, 73, 73, 0, 0, 0, 78, 69, 84, 87, 79, 82, 75, 0, 0, 0, 0, 0, ... ]
+Key: GPS GPSVersionID, value [2, 2, 0, 0]
+Key: GPS GPSLongitudeRef, value E
+Key: GPS GPSTimeStamp, value [7, 4, 36]
+Key: GPS GPSLongitude, value [118, 10, 363281/10000]
+Key: GPS GPSDate, value 2020:03:24
+Key: Image GPSInfo, value 788
+Key: Image YResolution, value 72
+Key: Image XResolution, value 72
+Key: Image ImageWidth, value 3456
+Key: Image Model, value vivo Y97
+Key: Image Software, value MediaTek Camera Application
+Key: Image ImageDescription, value 
+Key: Image YCbCrPositioning, value Co-sited
+Key: Image ExifOffset, value 346
+Key: Image ResolutionUnit, value Pixels/Inch
+Key: Thumbnail YResolution, value 72
+Key: Thumbnail Compression, value JPEG (old-style)
+Key: Thumbnail JPEGInterchangeFormat, value 1205
+Key: Thumbnail JPEGInterchangeFormatLength, value 49792
+Key: Thumbnail XResolution, value 72
+Key: Thumbnail YCbCrPositioning, value Co-sited
+Key: Thumbnail Orientation, value Horizontal (normal)
+Key: Thumbnail ResolutionUnit, value Pixels/Inch
+Key: EXIF ExifVersion, value 0220
+Key: EXIF ExposureBiasValue, value 0
+Key: EXIF ExposureProgram, value Unidentified
+Key: EXIF ColorSpace, value sRGB
+Key: EXIF ExifImageLength, value 4608
+Key: EXIF DateTimeOriginal, value 2020:03:24 15:04:38
+Key: EXIF FlashPixVersion, value 0100
+Key: EXIF SubSecTimeOriginal, value 47
+Key: EXIF WhiteBalance, value Auto
+Key: Interoperability InteroperabilityIndex, value R98
+Key: EXIF InteroperabilityOffset, value 1069
+Key: EXIF ExposureMode, value Auto Exposure
+Key: EXIF ExposureTime, value 60001/1000000
+Key: EXIF Flash, value Flash did not fire
+Key: EXIF SubSecTime, value 47
+Key: EXIF FNumber, value 2
+Key: EXIF ISOSpeedRatings, value 750
+Key: EXIF UserComment, value 
+Key: EXIF ExifImageWidth, value 3456
+Key: EXIF ComponentsConfiguration, value YCbCr
+Key: EXIF SubSecTimeDigitized, value 47
+Key: EXIF DigitalZoomRatio, value 1
+Key: EXIF DateTimeDigitized, value 2020:03:24 15:04:38
+Key: EXIF MeteringMode, value CenterWeightedAverage
+Key: EXIF FocalLength, value 387/100
+Key: EXIF SceneCaptureType, value Standard
+Key: EXIF LightSource, value other light source
+
+Key: Image DateTime, value 2020:03:24 15:04:38
+Key: GPS GPSDate, value 2020:03:24
+Key: EXIF DateTimeOriginal, value 2020:03:24 15:04:38
+Key: EXIF DateTimeDigitized, value 2020:03:24 15:04:38
+
+截屏
+import exifread
+
+file=open(r'C:\Users\Administrator\Desktop\时光鸡\20200324130050_截屏.jpg','rb')
+tags=exifread.process_file(file)
+for tag in tags.keys():
+    if tag not in ('JPEGThumbnail', 'TIFFThumbnail', 'Filename', 'EXIF MakerNote'):
+        print("Key: %s, value %s" % (tag, tags[tag]))
+
+Key: Image ImageWidth, value 1080
+Key: Image ImageLength, value 2280
+Key: Image ExifOffset, value 94
+Key: Image Orientation, value 0
+Key: Image DateTime, value 2020:03:24 13:00:51
+Key: EXIF DateTimeOriginal, value 2020:03:24 13:00:51
+Key: EXIF DateTimeDigitized, value 2020:03:24 13:00:51
+Key: EXIF LightSource, value Unknown
+
+Key: Image DateTime, value 2020:03:24 13:00:51
+Key: EXIF DateTimeOriginal, value 2020:03:24 13:00:51
+Key: EXIF DateTimeDigitized, value 2020:03:24 13:00:51
+
+摄像
+无
+
+gif、jpeg、yuv、mp4 无
+import exifread
+
+file=open(r'C:\Users\Administrator\Desktop\时光鸡\20200305202135_截屏.jpg','rb')
+tags=exifread.process_file(file)
+print(len(tags))
+# for tag in tags.keys():
+#     print("Key: %s, value %s" % (tag, tags[tag]))
+
+
+file=open(r'C:\Users\Administrator\Desktop\时光鸡\20200305202135_截屏.jpg','rb')
+tags=exifread.process_file(file)
+print(tags['Image DateTime'])
+
+
+
+
+import os
+import shutil
+import time
+import re
+import exifread
+
+path=r'C:\Users\Administrator\Desktop\19'
+outfolder=r'C:\Users\Administrator\Desktop\时光鸡'
+suffixes=['相册','截屏','QQ','微信','网站','快手','西瓜','知乎']
+for folder, subfolders, files in os.walk(path):
+    for file in files:
+        suffix = '其它'
+        for i in suffixes:
+            if i in folder:
+                suffix = i
+        src = os.path.join(folder, file)
+        dst=''
+        filename, type = os.path.splitext(file)
+        strtime = ''
+        tags = exifread.process_file(open(src,'rb'))
+        if 'Image DateTime' in tags:
+            strtime=''.join(re.findall('[0-9]',str(tags['Image DateTime'])))
+        if len(strtime) < 14:
+            mtime = os.path.getmtime(src)
+            strtime = time.strftime('%Y%m%d%H%M%S', time.localtime(mtime))
+        tag = True
+        num=0
+        while tag:
+            numstr=''
+            if num>0:
+                if num<10:
+                    numstr=f'0{num}'
+                else:
+                    numstr=str(num)
+            dst = os.path.join(outfolder, f'{strtime}{numstr}_{suffix}{type}')
+            tag = os.path.exists(dst)
+            num+=1
+        shutil.move(src,dst)
+
+
+
+
+import os
+import shutil
+import time
+import re
+import exifread
+
+path=r'C:\Users\Administrator\Desktop\时间'
+outfolder=r'C:\Users\Administrator\Desktop\时光鸡'
+suffixes=['相册','截屏','QQ','微信','网站','快手','西瓜','知乎']
+count=1
+for folder, subfolders, files in os.walk(path):
+    for file in files:
+        suffix = '其它'
+        for i in suffixes:
+            if i in folder.split('\\')[-1]:
+                suffix = i
+        src = os.path.join(folder, file)
+        dst=''
+        filename, type = os.path.splitext(file)
+        strtime = ''
+        tags = exifread.process_file(open(src,'rb'))
+        if 'Image DateTime' in tags:
+            strtime=''.join(re.findall('[0-9]',str(tags['Image DateTime'])))
+        if len(strtime) < 14:
+            mtime = os.path.getmtime(src)
+            strtime = time.strftime('%Y%m%d%H%M%S', time.localtime(mtime))
+        tag = True
+        num=0
+        while tag:
+            numstr=''
+            if num>0:
+                if num<10:
+                    numstr=f'0{num}'
+                else:
+                    numstr=str(num)
+            dst = os.path.join(outfolder, f'{strtime}{numstr}_{suffix}{type}')
+            tag = os.path.exists(dst)
+            num+=1
+        print(count,src,dst)
+        count+=1
+        # shutil.move(src,dst)
+
+
+
+
+
+
+
+
+
+
+
+
